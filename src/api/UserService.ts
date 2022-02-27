@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { User } from '../api/User';
 
-const API = 'http://localhost:4000';
+const API = 'https://imonteza-recipes-api.herokuapp.com';
 export const getUser = async () => {
   return await axios.get(`${API}/profile`);
 };
