@@ -1,12 +1,9 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-// import Swipeable from '../components/Swipeable';
 import RecipeCard from '../components/RecipeCard';
-// import RecipeDetail from '../components/RecipeDetail';
 import * as RecipeService from '../api/recipeService';
 
 const Home = () => {
-  console.log('raaa 1');
   const [recipes, set_recipes] = useState([] as any);
 
   useEffect(() => {
@@ -14,13 +11,10 @@ const Home = () => {
       set_recipes(recipesResponse.data);
     });
   }, []);
-  console.log(recipes);
   return (
     <>
       <Box
         sx={{
-          // width: '100%',
-          // margin: '0 auto 0',
           display: 'flex',
           flexWrap: 'wrap',
           margin: {
@@ -35,8 +29,6 @@ const Home = () => {
       >
         <Box
           sx={{
-            // width: '100%',
-            // margin: '10px auto 0',
             display: 'flex',
             flexDirection: 'column',
             margin: 'auto',
@@ -70,13 +62,10 @@ const Home = () => {
           >
             Recetas populares de la gastronomía peruana
           </Typography>
-          {/* <Swipeable /> */}
         </Box>
 
         <Box
           sx={{
-            // width: '100%',
-            // margin: '0 auto 0',
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr',

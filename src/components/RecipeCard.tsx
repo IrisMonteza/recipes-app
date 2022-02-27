@@ -5,13 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Button } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
-// import RecipeDetail from '../components/RecipeDetail';
-// import { Box } from '@mui/material';
-
+import { useNavigate } from 'react-router-dom';
 export interface NumberItem {
   name: string;
   type: string;
@@ -22,19 +19,14 @@ export interface NumberItem {
 
 export default function RecipeReviewCard(props: any) {
   const navigate = useNavigate();
-  console.log('PROPPS ', props);
   const handleSubmit = () => {
     navigate('/recipeDetail', { state: props });
   };
   return (
     <>
-      {/* <Box sx={{ width: '100%', display: 'flex', alignContent: 'center' }}> */}
       <Card
         sx={{
           maxWidth: 350,
-
-          // justifyContent: 'space-around',
-          // flexWrap: 'wrap',
         }}
       >
         <CardHeader title={props.recipe.name} subheader={props.recipe.type} />

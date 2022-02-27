@@ -36,7 +36,6 @@ const LogIn = () => {
         email: formData.get('email')?.toString() || '',
         password: formData.get('password')?.toString() || '',
       });
-      console.log('data', data);
 
       dispatch({
         type: 'SET_USER',
@@ -107,11 +106,8 @@ const LogIn = () => {
               >
                 Iniciar Sesión
               </Button>
-              {/* {error && <Alert severity="error">{error}</Alert>} */}
               <Grid container justifyContent="flex-end">
-                <Grid item>
-                  {/* <Link to={'/signup'}>{"Don't have an account? Sign Up"}</Link> */}
-                </Grid>
+                <Grid item></Grid>
               </Grid>
             </Box>
           </Box>

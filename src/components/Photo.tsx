@@ -15,7 +15,6 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useDispatch, useSelector } from '../store/Store';
 import { useNavigate } from 'react-router-dom';
 import * as UserService from '../api/UserService';
-import { link } from 'fs';
 
 const theme = createTheme({
   palette: {
@@ -32,24 +31,17 @@ const Input = styled('input')({
 const Photo = () => {
   const dispatch = useDispatch();
   const [inputs, set_inputs] = useState({});
-  const navigate = useNavigate();
   const user = useSelector((state: any) => state.user);
-  console.log('userId', user);
 
   const [files, set_files] = useState([]);
 
   React.useEffect(() => {
-    console.log(inputs);
+    // console.log(inputs);
   }, [inputs]);
   const image = useSelector((state: any) => state.image);
 
-  // const handleInputChange = (e: any) => {
-  //   setUser({ ...user, [e.target.name]: e.target.value });
-  // };
-  // let filesData: any;
   const fileHandler = (e: any) => {
     set_files(e.target.files);
-    // console.log('fileeHandler', filesData);
     const file = e.target.files[0];
     const fileExt = file.name.split('.').pop();
     const verifyFileExt = ['jpg', 'jpeg', 'png'].includes(
@@ -65,12 +57,10 @@ const Photo = () => {
       type: 'setImage',
       payload: URL.createObjectURL(file),
     });
-    console.log(image);
   };
   const handleSubmit = async (e: any) => {
     const data = new FormData();
     data.append('api_key', '588536896886691');
-    console.log('aquí', files);
     data.append('file', files[0]);
 
     data.append('upload_preset', 'riy3i6re');
@@ -82,12 +72,10 @@ const Photo = () => {
       }
     );
     const file = await res.json();
-    console.log(file);
 
     const newPhoto = { photo: file.url };
 
     const resUpdate = await UserService.updateUser(user.id, newPhoto);
-    console.log(resUpdate);
     dispatch({
       type: 'SET_USER',
       payload: {
@@ -98,7 +86,6 @@ const Photo = () => {
         photo: resUpdate.data.photo || '',
       },
     });
-    console.log(user);
   };
 
   return (
@@ -133,7 +120,6 @@ const Photo = () => {
             >
               <Avatar
                 id="file"
-                // alt="Remy Sharp"
                 variant="square"
                 src={image}
                 sx={{
@@ -159,9 +145,7 @@ const Photo = () => {
                   htmlFor="contained-button-file"
                 >
                   <Input
-                    // accept="image/*"
                     id="contained-button-file"
-                    // multiple
                     onChange={fileHandler}
                     type="file"
                   />
@@ -180,9 +164,6 @@ const Photo = () => {
                 <Button onClick={handleSubmit}>SUBIR FOTO</Button>
               </Stack>
             </Grid>
-            {/* <label>
-              <Input accept="image/*" multiple />
-            </label> */}
           </Container>
         </ThemeProvider>
       </Box>

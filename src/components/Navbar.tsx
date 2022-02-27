@@ -32,7 +32,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log('user desde el navBar', user);
+  // console.log('user desde el navBar', user);
 
   function onLogOut() {
     dispatch({

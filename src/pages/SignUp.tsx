@@ -47,7 +47,6 @@ const SignUp = () => {
     e.preventDefault();
     const res = await UserService.createUser(user);
     toast.success('Nuevo usuario registrado');
-    console.log(res);
     dispatch({
       type: 'SET_USER',
       payload: { ...res.data, id: res.data._id },
@@ -85,7 +84,6 @@ const SignUp = () => {
                     name="name"
                     required
                     fullWidth
-                    // id="name"
                     label="First Name"
                     autoFocus
                     onChange={handleInputChange}
@@ -96,7 +94,6 @@ const SignUp = () => {
                   <TextField
                     required
                     fullWidth
-                    // id="lastname"
                     label="Last Name"
                     name="lastname"
                     autoComplete="family-name"
@@ -107,7 +104,6 @@ const SignUp = () => {
                   <TextField
                     required
                     fullWidth
-                    // id="email"
                     label="Email Address"
                     name="email"
                     autoComplete="email"
@@ -121,7 +117,6 @@ const SignUp = () => {
                     name="password"
                     label="Password"
                     type="password"
-                    // id="password"
                     autoComplete="new-password"
                     onChange={handleInputChange}
                   />
@@ -136,11 +131,8 @@ const SignUp = () => {
               >
                 Registrarse
               </Button>
-              {/* {error && <Alert severity="error">{error}</Alert>} */}
               <Grid container justifyContent="flex-end">
-                <Grid item>
-                  {/* <Link to={'/signup'}>{"Don't have an account? Sign Up"}</Link> */}
-                </Grid>
+                <Grid item></Grid>
               </Grid>
             </Box>
           </Box>

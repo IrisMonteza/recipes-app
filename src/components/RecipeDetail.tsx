@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import {
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  LinearProgress,
-  Typography,
-} from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const RecipeDetail = () => {
   const { state }: { state: any } = useLocation();
-  console.log(state);
   return (
     <Grid
       container
