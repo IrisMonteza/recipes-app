@@ -13,7 +13,6 @@ import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useDispatch, useSelector } from '../store/Store';
-import { useNavigate } from 'react-router-dom';
 import * as UserService from '../api/UserService';
 
 const theme = createTheme({
